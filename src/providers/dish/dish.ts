@@ -1,6 +1,7 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Dish } from '../../shared/dish';
+import { Comment } from '../../shared/comment';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 import { baseURL } from '../../shared/baseurl';
@@ -20,7 +21,7 @@ export class DishProvider {
 
   constructor(public http: Http,
     private processHTTPMsgService: ProcessHttpmsgProvider) { }
-
+    
   getDishes(): Observable<Dish[]> {
     return this.http.get(baseURL + 'dishes')
       .map(res => { return this.processHTTPMsgService.extractData(res); })
@@ -37,6 +38,13 @@ export class DishProvider {
     return this.http.get(baseURL + 'dishes?featured=true')
       .map(res => { return this.processHTTPMsgService.extractData(res)[0]; })
       .catch(error => { return this.processHTTPMsgService.handleError(error); });
+  }
+
+  submitDish(dish:Dish, id:number): Observable<Dish> {
+    console.log(dish);
+    return this.http.put(baseURL + 'dishes/' + id, dish)
+    .map(res => { return this.processHTTPMsgService.extractData(res); })
+    .catch(error => { return this.processHTTPMsgService.handleError(error); });
   }
 
 }

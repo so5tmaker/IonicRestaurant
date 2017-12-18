@@ -46,7 +46,7 @@ export class FavoritesPage implements OnInit {
 
     let alert = this.alertCtrl.create({
       title: 'Confirm Delete',
-      message: 'Do you want to delete Dish ' + id,
+      message: 'Do you want to delete Dish ' + (id + 1),
       buttons: [
         {
           text: 'Cancel',
@@ -62,7 +62,7 @@ export class FavoritesPage implements OnInit {
               content: 'Deleting . . .'
             });
             let toast = this.toastCtrl.create({
-              message: 'Dish ' + id + ' deleted successfully',
+              message: 'Dish ' + (id + 1) + ' deleted successfully',
               duration: 3000
             });
             loading.present();
@@ -79,6 +79,4 @@ export class FavoritesPage implements OnInit {
     item.close();
 
   }
-}
-
 }

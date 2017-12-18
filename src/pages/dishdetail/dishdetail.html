@@ -2,14 +2,17 @@
   Generated template for the DishdetailPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
+  Ionic pages and navigation.icon-right clear small color="white" (click)="openModal()"
 -->
 <ion-header>
-
   <ion-navbar color="primary">
     <ion-title>Dish Details</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentActionSheet()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -62,14 +65,14 @@
   </ion-list>
 
   <ion-fab bottom right [hidden]="favorite">
-      <button ion-fab (click)="addToFavorites()">
-        <ion-icon name="heart-outline"></ion-icon>
-      </button>
-    </ion-fab>
-    <ion-fab bottom right *ngIf="favorite">
-      <button ion-fab>
-        <ion-icon name="heart"></ion-icon>
-      </button>
-    </ion-fab>
-    
+    <button ion-fab (click)="addToFavorites()">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab bottom right *ngIf="favorite">
+    <button ion-fab>
+      <ion-icon name="heart"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>
