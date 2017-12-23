@@ -7,6 +7,7 @@ import { Dish } from '../../shared/dish';
 import { Comment } from '../../shared/comment';
 import { FavoriteProvider } from '../../providers/favorite/favorite';
 import { DishProvider } from '../../providers/dish/dish';
+import { Storage } from '@ionic/storage';
 
 import { CommentPage } from '../comment/comment';
 
@@ -40,12 +41,13 @@ export class DishdetailPage {
     public modalCtrl: ModalController,
     @Inject('BaseURL') private BaseURL
   ) {
+    console.log(navParams.get('dish'));
     this.dish = navParams.get('dish');
     this.favorite = favoriteservice.isFavorite(this.dish.id);
     this.numcomments = this.dish.comments.length;
     let total = 0;
     this.dish.comments.forEach(comment => total += comment.rating);
-    this.avgstars = (total / this.numcomments).toFixed(2);
+    // this.avgstars = (total / this.numcomments).toFixed(2);
   }
 
   ionViewDidLoad() {
@@ -96,11 +98,11 @@ export class DishdetailPage {
       this.comment = data;
       console.log(this.comment);
       this.dish.comments.push(this.comment);
-      this.dishservice.submitDish(this.dish, this.dish.id)
-        .subscribe(
-        (data: Dish) => { this.dish = data; },
-        errMess => console.log(errMess)
-        );
+      // this.dishservice.submitDish(this.dish, this.dish.id)
+      //   .subscribe(
+      //   (data: Dish) => { this.dish = data; },
+      //   errMess => console.log(errMess)
+      //   );
     });
     modal.present();
   }
