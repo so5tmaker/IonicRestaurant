@@ -86,4 +86,5 @@
     <engine name="ios" spec="~4.5.4" />
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="^0.8.5" />
     <plugin name="cordova-plugin-email" spec="^1.2.6" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.1" />
 </widget>
