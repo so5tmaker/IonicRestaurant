@@ -33,7 +33,7 @@ export class DishdetailPage {
   favorite: boolean;
   comment: Comment;
   date = new Date();
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionSheetCtrl: ActionSheetController,
     private favoriteservice: FavoriteProvider,
